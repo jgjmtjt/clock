@@ -18,17 +18,20 @@ import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+import com.github.clock.Args;
 import com.github.clock.Clock;
 import com.github.clock.UpdateObserver;
 
 public class ClockViewer extends JComponent{
     private static final long serialVersionUID = 851223340594030326L;
 
+    private Args args;
     private Clock clock;
     private Image background;
     private boolean debugMode = false;
 
-    public ClockViewer(Clock clock){
+    public ClockViewer(Clock clock, Args args){
+	this.args = args;
         clock.addUpdateObserver(new UpdateObserver(){
             @Override
             public void update(Clock clock) {
